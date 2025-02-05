@@ -1,23 +1,24 @@
-import React, { createContext, useContext, useState } from 'react';
+import React from 'react';
+import { AuthProvider } from './components/AuthContext';
+import LoginButton from './components/LoginButton';
+import UserProfile from './components/UserProfle';
+import { GoogleOAuthProvider } from '@react-oauth/google'; // Google OAuth provider
+import './index.css'; // Ensure you have Tailwind CSS imported
 
-const AuthContext = createContext();
-
-export const AuthProvider = ({ children }) => {
-   const [user, setUser] = useState(null);
-
-   const login = (userData) => {
-      setUser(userData);
-   };
-
-   const value = {
-      user,
-
-      login,
-   };
-
-   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+const App = () => {
+   return (
+      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+         <AuthProvider>
+            <div className="p-6 flex flex-col items-center justify-center bg-gray-100">
+               <h1 className="text-4xl font-bold mb-4">Welcome to the App</h1>
+               <div className="space-y-4">
+                  <LoginButton />
+                  <UserProfile />
+               </div>
+            </div>
+         </AuthProvider>
+      </GoogleOAuthProvider>
+   );
 };
 
-export const useAuth = () => {
-   return useContext(AuthContext);
-};
+export default App;
