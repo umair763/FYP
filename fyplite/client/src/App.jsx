@@ -1,9 +1,10 @@
+// App.jsx
 import React from 'react';
 import { AuthProvider } from './components/AuthContext';
 import LoginButton from './components/LoginButton';
 import UserProfile from './components/UserProfle';
-import { GoogleOAuthProvider } from '@react-oauth/google'; // Google OAuth provider
-import './index.css'; // Ensure you have Tailwind CSS imported
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import './index.css';
 
 const App = () => {
    return (

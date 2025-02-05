@@ -1,14 +1,12 @@
+// server.js
 const express = require("express");
-const axios = require("axios");
 const cors = require("cors");
 require("dotenv").config();
 const { OAuth2Client } = require("google-auth-library");
-
 const app = express();
 const port = process.env.PORT || 5000;
 
 // Middleware to handle CORS
-// server.js (update CORS middleware)
 app.use(
 	cors({
 		origin: "http://localhost:5173",
@@ -18,14 +16,13 @@ app.use(
 	})
 );
 
-// Remove or modify these headers
+// Remove security headers that interfere with CORS
 app.use((req, res, next) => {
-	res.setHeader("Cross-Origin-Opener-Policy", "unsafe-none"); // Changed from "same-origin"
-	res.setHeader("Cross-Origin-Embedder-Policy", "unsafe-none"); // Changed from "require-corp"
+	res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+	res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
 	next();
 });
 
-// Middleware to parse incoming JSON bodies
 app.use(express.json());
 
 // Initialize the Google OAuth client
