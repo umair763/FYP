@@ -1,0 +1,78 @@
+‎Social media's platform management
+‎
+‎Facebook
+‎Instagram
+‎Twitter/YouTube
+‎
+‎posts , comments and sharing of post
+‎(logins, posting on single platform and analysis) 
+‎
+‎comparison of common post analysis on platform
+‎(1 on 1) 
+‎(2 on 1) 
+‎(2 on 2) 
+‎
+‎USP AI (sentimental analysis of comments {positive and negative}) 
+‎
+‎tools
+‎frontend react material UI
+‎backend
+‎    apis
+‎    mongodb requires sql but prefer due to    learning 
+‎    express and node
+‎ 
+‎
+‎social app apis for posting and data collection
+‎
+‎triangle🔻 money , resource and time
+‎ 
+‎vision for future of the product is to make modules for plugins on WordPress and and other softwares for eg AI on different platform and software for sentimental analysis
+‎
+‎silver coin and gold coin (for interview give eg 3 things for presentation and present 4 in actual presentation for sake of impression. 
+‎
+‎answers for why react, mongodb, and other tools? 
+‎
+‎react for efficient frontend market demand...resources skills so on so 
+‎in last a unique answer is that there is no perfect answer basically it is personal preference and choice. 
+‎
+‎query optimization. eg join union page bottom data retrieval etc 
+‎
+‎highlight features of module
+
+
+
+
+
+
+
+
+
+
+this is not correct let me repeat my idea , it is a social media management platform which will allow small and medium businesses and individual content creates to manage their posts and videos for example a startup has to make same video with same description on facebook,Instagram youtube etc it is a redendent and hectic process for ease our platform will do this on single touch  with ease, our project will also track posts reaction such as reactions, comments, reach, and shares then do a cross comparison between same post on different social app such as a post on facebook vs Instagram (any vs any), also creating a report and notifying user on top reach of a post another feature of our project will be scheduling of posts and AI integration for sentimental analysis through comments of a posts(image/video on any platform) to analyse for positive and negative comments other feature will be modularity such as AI extension interoperability with Wordpress, it will also include a achievement rewards such as a bar or any sort of graphic that will show user progress on social media to engage user like a scheduling a post more then 3 times a reward will be given such as scheduling master and posting continuly throughout the week a streak legend reward will be assigned (note gimme some other small to large idea for this project to make it more powerful increase chances of approval within the scope), 
+‎
+
+
+11. Additional Features for Stronger Approval
+
+AI-Powered Post Optimization: Suggests ideal posting time based on user engagement history.
+
+Auto-Generate Hashtags & Captions: AI-assisted recommendations to increase reach.
+
+Competitor Analysis: Tracks how competitors perform on different platforms.
+
+Brand Health Score: AI-driven score indicating the overall social media effectiveness.
+
+Crisis Alert System: Detects sudden spikes in negative comments and notifies users.
+
+AI-Assisted Content Creation: Integrate AI tools to suggest hashtags, captions, and post enhancements.
+
+
+title:OmniSocial: AI-Powered Multi-Platform Management & Insights
+
+
+
+
+
+
+
+‎
