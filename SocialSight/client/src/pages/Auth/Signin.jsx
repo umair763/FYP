@@ -1,5 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
+const transitionVariants = {
+   initial: { opacity: 0, x: 100 },
+   animate: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+   exit: { opacity: 0, x: -50, transition: { duration: 0.8 } },
+};
 
 function Signin() {
    const [email, setEmail] = useState('');
@@ -18,36 +25,63 @@ function Signin() {
    };
 
    return (
-      <div className="flex justify-center items-center min-h-screen bg-gray-100">
-         <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-80">
-            <h2 className="text-xl font-bold mb-4">Sign In</h2>
-            <input
-               type="email"
-               value={email}
-               onChange={(e) => setEmail(e.target.value)}
-               className="w-full p-2 mb-4 border rounded"
-               placeholder="Email"
-            />
-            <input
-               type="password"
-               value={password}
-               onChange={(e) => setPassword(e.target.value)}
-               className="w-full p-2 mb-4 border rounded"
-               placeholder="Password"
-            />
-            <button type="submit" className="w-full py-2 bg-blue-500 text-white rounded">
-               Sign In
-            </button>
-            <div className="mt-4">
-               <p>
-                  Don't have an account?{' '}
-                  <button onClick={() => navigate('/signup')} className="text-blue-500">
-                     Sign Up
+      <motion.div
+         className="flex flex-col md:flex-row h-screen w-full"
+         initial="initial"
+         animate="animate"
+         exit="exit"
+         variants={transitionVariants}
+      >
+         <div className="flex flex-col md:flex-row h-screen w-full">
+            {/* Left Side - Sign In Form */}
+            <div className="md:w-1/2 flex flex-col justify-center items-center p-6 bg-white">
+               <h2 className="text-3xl font-bold text-purple-700">Sign in</h2>
+               <p className="text-gray-500 mt-1">Welcome to SocialSight</p>
+               <form className="w-full max-w-sm mt-6 space-y-4">
+                  <input
+                     type="email"
+                     placeholder="Email Address"
+                     className="w-full p-3 border rounded-lg focus:outline-purple-500"
+                  />
+                  <input
+                     type="password"
+                     placeholder="Password"
+                     className="w-full p-3 border rounded-lg focus:outline-purple-500"
+                  />
+                  <button
+                     type="submit"
+                     className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-lg"
+                  >
+                     SIGN IN
                   </button>
+               </form>
+               <p className="mt-4 text-gray-600">
+                  New to SocialSight? &nbsp;
+                  <span className="text-purple-600 cursor-pointer" onClick={() => navigate('/signup')}>
+                     Sign up
+                  </span>
                </p>
             </div>
-         </form>
-      </div>
+
+            {/* Right Side - Illustration */}
+            <div className="md:w-1/2 flex flex-col justify-center items-center bg-gradient-to-b from-purple-300 to-white p-6 text-center">
+               <h1 className="text-2xl md:text-3xl font-bold text-purple-700">Welcome to SocialSight!</h1>
+               <p className="mt-2 text-gray-600 font-semibold">
+                  Sign in to manage, schedule, and analyze your social media effortlessly.
+               </p>
+               <ul className="text-gray-600 text-left mt-4">
+                  <li>✅ Access AI-powered insights and analytics to track performance.</li>
+                  <li>✅ Monitor audience sentiment and engagement in real-time.</li>
+                  <li>✅ Optimize your strategy with data-driven recommendations.</li>
+               </ul>
+               <img
+                  src="./src/assets/images/SIGN 2.png" // Replace with your transparent image
+                  alt="Illustration"
+                  className="mt-7 w-3/4 h-auto object-contain mx-auto mb-4"
+               />
+            </div>
+         </div>
+      </motion.div>
    );
 }
 
