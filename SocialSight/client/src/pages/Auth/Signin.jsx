@@ -55,9 +55,9 @@ function Signin() {
                      SIGN IN
                   </button>
                </form>
-               <p className="mt-4 text-gray-600">
+               <p className="mt-4 text-gray-600 ">
                   New to SocialSight? &nbsp;
-                  <span className="text-purple-600 cursor-pointer" onClick={() => navigate('/signup')}>
+                  <span className="text-purple-600 cursor-pointer hover:underline" onClick={() => navigate('/signup')}>
                      Sign up
                   </span>
                </p>

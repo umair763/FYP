@@ -88,8 +88,8 @@ const SignUp = () => {
                   SIGN UP
                </button>
             </form>
-            <button className="mt-4 text-purple-600 hover:underline" onClick={() => navigate('/signin')}>
-               Already have an account? Sign In
+            <button className="mt-4 text-gray-600 " onClick={() => navigate('/signin')}>
+               Already have an account? <span className="hover:underline text-purple-600 cursor-pointer">Sign In</span>
             </button>
          </div>
       </div>
