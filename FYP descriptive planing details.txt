@@ -1,0 +1,170 @@
+‎Social media's platform management
+‎
+‎Facebook
+‎Instagram
+‎Twitter/YouTube
+‎
+‎posts , comments and sharing of post
+‎(logins, posting on single platform and analysis) 
+‎
+‎comparison of common post analysis on platform
+‎(1 on 1) 
+‎(2 on 1) 
+‎(2 on 2) 
+‎
+‎USP AI (sentimental analysis of comments {positive and negative}) 
+‎
+‎tools
+‎frontend react material UI
+‎backend
+‎    apis
+‎    mongodb requires sql but prefer due to    learning 
+‎    express and node
+‎ 
+‎
+‎social app apis for posting and data collection
+‎
+‎triangle🔻 money , resource and time
+‎ 
+‎vision for future of the product is to make modules for plugins on WordPress and and other softwares for eg AI on different platform and software for sentimental analysis
+‎
+‎silver coin and gold coin (for interview give eg 3 things for presentation and present 4 in actual presentation for sake of impression. 
+‎
+‎answers for why react, mongodb, and other tools? 
+‎
+‎react for efficient frontend market demand...resources skills so on so 
+‎in last a unique answer is that there is no perfect answer basically it is personal preference and choice. 
+‎
+‎query optimization. eg join union page bottom data retrieval etc 
+‎
+‎highlight features of module
+
+
+
+
+
+
+
+
+
+
+this is not correct let me repeat my idea , it is a social media management platform which will allow small and medium businesses and individual content creates to manage their posts and videos for example a startup has to make same video with same description on facebook,Instagram youtube etc it is a redendent and hectic process for ease our platform will do this on single touch  with ease, our project will also track posts reaction such as reactions, comments, reach, and shares then do a cross comparison between same post on different social app such as a post on facebook vs Instagram (any vs any), also creating a report and notifying user on top reach of a post another feature of our project will be scheduling of posts and AI integration for sentimental analysis through comments of a posts(image/video on any platform) to analyse for positive and negative comments other feature will be modularity such as AI extension interoperability with Wordpress, it will also include a achievement rewards such as a bar or any sort of graphic that will show user progress on social media to engage user like a scheduling a post more then 3 times a reward will be given such as scheduling master and posting continuly throughout the week a streak legend reward will be assigned (note gimme some other small to large idea for this project to make it more powerful increase chances of approval within the scope), 
+‎
+
+
+11. Additional Features for Stronger Approval
+
+AI-Powered Post Optimization: Suggests ideal posting time based on user engagement history.
+
+Auto-Generate Hashtags & Captions: AI-assisted recommendations to increase reach.
+
+Competitor Analysis: Tracks how competitors perform on different platforms.
+
+Brand Health Score: AI-driven score indicating the overall social media effectiveness.
+
+Crisis Alert System: Detects sudden spikes in negative comments and notifies users.
+
+AI-Assisted Content Creation: Integrate AI tools to suggest hashtags, captions, and post enhancements.
+
+
+title:OmniSocial: AI-Powered Multi-Platform Management & Insights
+names:
+1. SocialLens
+2. SocialReach Intel
+
+
+
+Definitely Exclude (for now):
+
+jobs/:  If you're not implementing post scheduling or any other background tasks immediately, you can safely exclude this.  Scheduling is a more advanced feature.
+
+seeders/:  You can manually add data to your database during development.  Seeders are helpful for larger projects or automated testing setups.
+
+migrations/:  If you're not using database migrations (which is often the case when starting out with MongoDB and Mongoose or if you are not using TypeORM), you can exclude this.  Migrations become more important as your database schema evolves.
+
+Potentially Exclude (for now, but consider adding soon):
+
+exceptions/: You can handle errors directly in your controllers initially. However, as your project grows, a global exception handler (HttpException.filter.js) will make your code much cleaner. So, while you can exclude it now, plan to add it soon.
+
+
+
+MONGODB SCHEMAS
+
+1. User Schema
+javascript
+Copy
+const UserSchema = new mongoose.Schema({
+    name: String,
+    email: { type: String, unique: true },
+    password: String,
+    role: { type: String, enum: ['user', 'admin'] },
+    subscriptionPlan: { type: String, enum: ['basic', 'premium', 'enterprise'] },
+    profilePic: String,  // Optional, URL to profile picture
+    createdAt: { type: Date, default: Date.now },
+    lastLogin: Date,
+    socialMediaAccounts: [{ platform: String, accountId: String }]  // Links to their social media accounts
+});
+2. Post Schema
+javascript
+Copy
+const PostSchema = new mongoose.Schema({
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    content: String,  // Text content or URLs to images/videos
+    platform: [{ type: String, enum: ['Facebook', 'Instagram', 'Twitter', 'LinkedIn', 'YouTube', 'TikTok'] }],
+    status: { type: String, enum: ['draft', 'scheduled', 'published'] },
+    scheduledTime: Date,
+    postIdFromPlatform: String,  // ID of the post in the respective platform
+    engagementMetrics: {
+        likes: Number,
+        comments: Number,
+        shares: Number,
+        reach: Number
+    },
+    sentimentAnalysis: {
+        positive: Number,
+        negative: Number,
+        neutral: Number
+    },
+    createdAt: { type: Date, default: Date.now }
+});
+3. Analytics Schema
+javascript
+Copy
+const AnalyticsSchema = new mongoose.Schema({
+    postId: { type: mongoose.Schema.Types.ObjectId, ref: 'Post' },
+    platform: String,  // The platform on which the post was published
+    likes: Number,
+    comments: Number,
+    shares: Number,
+    reach: Number,
+    timestamp: Date
+});
+4. Sentiment Analysis Schema
+javascript
+Copy
+const SentimentSchema = new mongoose.Schema({
+    postId: { type: mongoose.Schema.Types.ObjectId, ref: 'Post' },
+    sentiment: { type: String, enum: ['positive', 'negative', 'neutral'] },
+    score: Number,  // Sentiment score
+    analysisTimestamp: Date
+});
+5. Scheduling Schema
+javascript
+Copy
+const ScheduleSchema = new mongoose.Schema({
+    postId: { type: mongoose.Schema.Types.ObjectId, ref: 'Post' },
+    scheduledTime: Date,
+    platform: String  // The platform to which the post will be published
+});
+6. Gamification Schema (for Rewards & Achievements)
+javascript
+Copy
+const AchievementSchema = new mongoose.Schema({
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    badge: String,  // Badge or achievement name
+    points: Number,  // Points awarded for the achievement
+    timestamp: Date
+});
+
+
+‎
