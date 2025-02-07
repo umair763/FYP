@@ -1,5 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
+const transitionVariants = {
+   initial: { opacity: 0, x: -100 },
+   animate: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+   exit: { opacity: 0, x: 50, transition: { duration: 0.8 } },
+};
+
+const sidebarVariants = {
+   initial: { x: '100%', opacity: 1 },
+   animate: { x: '0%', opacity: 1, transition: { duration: 0.8 } },
+   exit: { x: '100%', opacity: 1, transition: { duration: 0.8 } },
+};
 
 const SignUp = () => {
    const [username, setUsername] = useState('');
@@ -29,32 +42,44 @@ const SignUp = () => {
    };
 
    return (
-      <div className="flex flex-col md:flex-row h-screen w-full">
-         {/* Left Side - Image and Text */}
-         <div className="md:w-1/2 flex flex-col justify-center items-center bg-gradient-to-b from-purple-300 to-white p-6 text-center">
-            <h1 className="text-2xl md:text-3xl font-bold text-purple-700 mt-4">Welcome to SocialSight!</h1>
+      <motion.div
+         className="flex flex-row h-screen w-full overflow-hidden"
+         initial="initial"
+         animate="animate"
+         exit="exit"
+         variants={transitionVariants}
+      >
+         {/* Left Side - Illustration */}
+         <motion.div
+            className="md:w-1/2 flex flex-col justify-center items-center bg-gradient-to-b from-purple-300 to-white p-6 text-center"
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={sidebarVariants}
+         >
+            <h1 className="text-2xl md:text-3xl font-bold text-purple-700 mt-4">
+               SocialSight’s AI-Powered Social Media Assistant
+            </h1>
             <p className="mt-2 text-gray-600 font-semibold">
-               Sign in to manage, schedule, and analyze your social media effortlessly.
+               <span className="font-bold">
+                  Create, Analyze performance, and track audience sentiment—all in one place.
+               </span>
+               Tailored insights and smart automation for effortless social media management.
             </p>
-            <ul className="text-gray-600 text-sm mt-4 space-y-2">
-               <li>✔️ Access AI-powered insights and analytics to track performance.</li>
-               <li>✔️ Monitor audience sentiment and engagement in real-time.</li>
-               <li>✔️ Optimize your strategy with data-driven recommendations.</li>
-            </ul>
             <img src="./src/assets/images/SIGN.png" alt="Illustration" className="w-3/4 h-auto object-contain" />
-         </div>
+         </motion.div>
 
          {/* Right Side - Signup Form */}
-         <div className="md:w-1/2 flex flex-col justify-center items-center p-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-purple-700">Sign Up</h2>
-            <p className="text-gray-500 mt-1">Create an account at SocialSight</p>
+         <div className="md:w-1/2 flex flex-col justify-center items-center p-6 relative">
+            <h2 className="text-2xl md:text-3xl font-bold text-purple-700">Create Account</h2>
+            <p className="text-gray-500 mt-1">Sign up at SocialSight</p>
             <div className="relative mt-4 w-24 h-24 flex justify-center items-center border-4 border-purple-300 rounded-full overflow-hidden">
                {profileImage ? (
                   <img src={profileImage} alt="Profile" className="w-full h-full object-cover" />
                ) : (
                   <span className="text-4xl">👤</span>
                )}
-               <label className="absolute bottom-0 right-0 bg-purple-600 text-white p-1 rounded-full cursor-pointer z-10">
+               <label className="absolute bottom-0 right-0 bg-purple-600 text-white p-2 rounded-full cursor-pointer shadow-lg z-10">
                   📷
                   <input type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
                </label>
@@ -88,11 +113,11 @@ const SignUp = () => {
                   SIGN UP
                </button>
             </form>
-            <button className="mt-4 text-gray-600 " onClick={() => navigate('/signin')}>
+            <button className="mt-4 text-gray-700 " onClick={() => navigate('/signin')}>
                Already have an account? <span className="hover:underline text-purple-600 cursor-pointer">Sign In</span>
             </button>
          </div>
-      </div>
+      </motion.div>
    );
 };
 

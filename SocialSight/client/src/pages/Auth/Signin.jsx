@@ -8,6 +8,13 @@ const transitionVariants = {
    exit: { opacity: 0, x: -50, transition: { duration: 0.8 } },
 };
 
+
+const sidebarVariants = {
+   initial: { x: '-100%', opacity: 1 },
+   animate: { x: '0%', opacity: 1, transition: { duration: 0.8 } },
+   exit: { x: '100%', opacity: 1, transition: { duration: 0.8 } },
+};
+
 function Signin() {
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
@@ -62,9 +69,17 @@ function Signin() {
                   </span>
                </p>
             </div>
+         </div>
 
-            {/* Right Side - Illustration */}
-            <div className="md:w-1/2 flex flex-col justify-center items-center bg-gradient-to-b from-purple-300 to-white p-6 text-center">
+         {/* Right Side - Illustration */}
+         <motion.div
+            className="md:w-1/2 flex flex-col justify-center items-center bg-gradient-to-b from-purple-300 to-white p-6 text-center absolute right-0 top-0 h-full "
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={sidebarVariants}
+         >
+            <div className=" flex flex-col justify-center items-center p-6 text-center">
                <h1 className="text-2xl md:text-3xl font-bold text-purple-700">Welcome to SocialSight!</h1>
                <p className="mt-2 text-gray-600 font-semibold">
                   Sign in to manage, schedule, and analyze your social media effortlessly.
@@ -75,12 +90,12 @@ function Signin() {
                   <li>✅ Optimize your strategy with data-driven recommendations.</li>
                </ul>
                <img
-                  src="./src/assets/images/SIGN 2.png" // Replace with your transparent image
+                  src="./src/assets/images/SIGN 2.png" 
                   alt="Illustration"
                   className="mt-7 w-3/4 h-auto object-contain mx-auto mb-4"
                />
             </div>
-         </div>
+         </motion.div>
       </motion.div>
    );
 }
