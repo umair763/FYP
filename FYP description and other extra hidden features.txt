@@ -68,11 +68,23 @@ AI-Assisted Content Creation: Integrate AI tools to suggest hashtags, captions, 
 
 
 title:OmniSocial: AI-Powered Multi-Platform Management & Insights
+names:
+1. SocialLens
+2. SocialReach Intel
 
 
 
+Definitely Exclude (for now):
 
+jobs/:  If you're not implementing post scheduling or any other background tasks immediately, you can safely exclude this.  Scheduling is a more advanced feature.
 
+seeders/:  You can manually add data to your database during development.  Seeders are helpful for larger projects or automated testing setups.
+
+migrations/:  If you're not using database migrations (which is often the case when starting out with MongoDB and Mongoose or if you are not using TypeORM), you can exclude this.  Migrations become more important as your database schema evolves.
+
+Potentially Exclude (for now, but consider adding soon):
+
+exceptions/: You can handle errors directly in your controllers initially. However, as your project grows, a global exception handler (HttpException.filter.js) will make your code much cleaner. So, while you can exclude it now, plan to add it soon.
 
 
 ‎

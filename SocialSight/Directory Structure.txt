@@ -1,0 +1,260 @@
+SocialLens/
+├── client/
+│   ├── public/
+│   │   └── index.html
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── context/
+│   │   │   │   ├── AuthContext.jsx       # Authentication context
+│   │   │   │   ├── ThemeContext.jsx      # Theme context
+│   │   │   │   ├── PlatformContext.jsx   # Social platform context (if needed)
+│   │   │   │   └── ...
+│   │   │   ├── layout/
+│   │   │   │   ├── Header.jsx
+│   │   │   │   ├── Sidebar.jsx
+│   │   │   │   ├── Footer.jsx           # If you have a footer
+│   │   │   │   └── Layout.jsx           # Main layout component
+│   │   │   ├── routes/
+│   │   │   │   └── AppRoutes.jsx        # React Router configuration
+│   │   │   ├── pages/
+│   │   │   │   ├── Dashboard.jsx
+│   │   │   │   ├── Analytics.jsx
+│   │   │   │   ├── Scheduling.jsx
+│   │   │   │   ├── Settings.jsx
+│   │   │   │   ├── Login.jsx
+│   │   │   │   └── ...
+│   │   │   ├── components/                # Reusable UI components
+│   │   │   │   ├── common/
+│   │   │   │   │   ├── Button.jsx
+│   │   │   │   │   ├── Input.jsx
+│   │   │   │   │   ├── Modal.jsx
+│   │   │   │   │   ├── ...
+│   │   │   │   ├── platform/            # Platform-specific components (if needed)
+│   │   │   │   │   └── FacebookPost.jsx
+│   │   │   │   └── ...
+│   │   │   ├── utils/
+│   │   │   │   ├── api.js             # API interaction functions
+│   │   │   │   ├── formatting.js      # Date/number formatting
+│   │   │   │   ├── validation.js      # Form validation
+│   │   │   │   └── ...
+│   │   │   ├── features/
+│   │   │   │   ├── scheduling/
+│   │   │   │   │   ├── components/
+│   │   │   │   │   │   └── PostScheduler.jsx
+│   │   │   │   │   ├── context/
+│   │   │   │   │   │   └── SchedulingContext.jsx
+│   │   │   │   │   └── ...
+│   │   │   │   ├── analytics/
+│   │   │   │   │   ├── components/
+│   │   │   │   │   │   └── Charts.jsx
+│   │   │   │   │   └── ...
+│   │   │   │   ├── ai-insights/
+│   │   │   │   │   ├── components/
+│   │   │   │   │   │   └── SentimentDisplay.jsx
+│   │   │   │   │   └── ...
+│   │   │   │   ├── gamification/
+│   │   │   │   │   ├── components/
+│   │   │   │   │   │   └── Badges.jsx
+│   │   │   │   │   └── ...
+│   │   │   │   └── integrations/
+│   │   │   │       ├── components/
+│   │   │   │       │   └── FacebookIntegration.jsx
+│   │   │   │       └── ...
+│   │   │   ├── services/
+│   │   │   │   ├── authService.js
+│   │   │   │   ├── postService.js
+│   │   │   │   └── ...
+│   │   │   ├── styles/
+│   │   │   │   ├── global.css
+│   │   │   │   └── theme.js        # Or theme.scss, etc.
+│   │   │   ├── main.jsx
+│   │   │   └── App.jsx
+│   │   ├── assets/
+│   │   │   └── images/
+│   │   │       └── logo.png
+│   │   ├── .env
+│   │   ├── package.json
+│   │   ├── vite.config.js
+│   │   └── ...
+│   └── ...
+server/
+├── src/
+│   ├── api/
+│   │   ├── posts/            # Create, schedule, publish posts
+│   │   │   ├── posts.controller.js
+│   │   │   ├── posts.service.js
+│   │   │   └── posts.routes.js
+│   │   ├── analytics/        # Get engagement metrics
+│   │   │   ├── analytics.controller.js
+│   │   │   ├── analytics.service.js
+│   │   │   └── analytics.routes.js
+│   │   ├── ai/               # Sentiment analysis
+│   │   │   ├── ai.controller.js
+│   │   │   ├── ai.service.js
+│   │   │   └── ai.routes.js
+│   │   ├── users/            # User management (authentication, profiles)
+│   │   │   ├── users.controller.js
+│   │   │   ├── users.service.js
+│   │   │   └── users.routes.js
+│   │   └── platforms/        # Social media API interactions
+│   │       ├── platforms.service.js  # Centralized platform logic
+│   │       ├── facebook.js       # Platform-specific logic
+│   │       ├── twitter.js
+│   │       ├── instagram.js
+│   │       ├── youtube.js
+│   │       ├── linkedin.js
+│   │       ├── tiktok.js
+│   │       └── ...
+│   ├── auth/                # Authentication (JWT)
+│   │   ├── auth.controller.js
+│   │   ├── auth.service.js
+│   │   ├── auth.module.js
+│   │   ├── strategies/
+│   │   │   └── jwt.strategy.js
+│   │   └── guards/
+│   │       └── jwt-auth.guard.js
+│   ├── common/
+│   │   ├── middleware/
+│   │   │   └── auth.middleware.js
+│   │   ├── utils/
+│   │   │   └── api.js       # For making requests to social media APIs
+│   │   ├── dtos/
+│   │   │   ├── create-post.dto.js
+│   │   │   ├── update-post.dto.js
+│   │   │   ├── get-analytics.dto.js  # DTO for requesting analytics data
+│   │   │   ├── ...
+│   │   ├── interfaces/
+│   │   │   └── ...
+│   │   └── models/           # Database models (Mongoose, etc.)
+│   │       ├── Post.js
+│   │       ├── User.js
+│   │       └── ...
+│   ├── config/
+│   │   ├── db.config.js
+│   │   ├── auth.config.js
+│   │   ├── social-media.config.js # API keys, secrets
+│   │   └── ...
+│   ├── database/
+│   │   ├── db.js
+│   │   ├── models/
+│   │   │   ├── Post.js
+│   │   │   ├── User.js
+│   │   │   └── ...
+│   ├── lib/                 # Social media API SDKs/wrappers
+│   │   └── ...
+│   ├── services/
+│   │   ├── post.service.js
+│   │   ├── analytics.service.js
+│   │   ├── ai.service.js
+│   │   ├── user.service.js
+│   │   ├── platform.service.js # Centralized platform API interaction
+│   │   └── ...
+│   ├── main.js
+│   └── app.js
+├── .env
+├── package.json
+└── ...
+
+
+
+
+
+
+SocialLens/
+├── client/  # Frontend application (React, Vite, or similar)
+│   ├── public/
+│   │   └── index.html  # Main entry HTML file
+│   ├── src/  # Source code for the frontend
+│   │   ├── app/  # Core application structure
+│   │   │   ├── context/  # Global state management using Context API
+│   │   │   │   ├── AuthContext.jsx  # Manages authentication state
+│   │   │   │   ├── ThemeContext.jsx  # Manages theme settings (light/dark mode)
+│   │   │   │   ├── PlatformContext.jsx  # Context for social media platforms (if needed)
+│   │   │   ├── layout/  # Layout-related components
+│   │   │   │   ├── Header.jsx  # Navigation header
+│   │   │   │   ├── Sidebar.jsx  # Sidebar navigation menu
+│   │   │   │   ├── Footer.jsx  # Footer component (if used)
+│   │   │   │   ├── Layout.jsx  # Main layout wrapper
+│   │   │   ├── routes/
+│   │   │   │   └── AppRoutes.jsx  # React Router configuration
+│   │   │   ├── pages/  # Main page views
+│   │   │   │   ├── Dashboard.jsx  # Main dashboard
+│   │   │   │   ├── Analytics.jsx  # Page for social media analytics
+│   │   │   │   ├── Scheduling.jsx  # Social media post scheduler
+│   │   │   │   ├── Settings.jsx  # User settings page
+│   │   │   │   ├── Login.jsx  # Authentication page
+│   │   │   ├── components/  # Reusable UI components
+│   │   │   │   ├── common/  # General UI components
+│   │   │   │   │   ├── Button.jsx  # Button component
+│   │   │   │   │   ├── Input.jsx  # Input field component
+│   │   │   │   │   ├── Modal.jsx  # Modal popup
+│   │   │   │   ├── platform/  # Platform-specific components
+│   │   │   │   │   ├── FacebookPost.jsx  # Facebook post component
+│   │   │   ├── utils/  # Helper functions
+│   │   │   │   ├── api.js  # API calls to backend
+│   │   │   │   ├── formatting.js  # Formatting utilities (dates, numbers)
+│   │   │   │   ├── validation.js  # Form validation functions
+│   │   │   ├── features/  # Feature-based organization
+│   │   │   │   ├── scheduling/  # Scheduling feature
+│   │   │   │   │   ├── components/
+│   │   │   │   │   │   ├── PostScheduler.jsx  # Scheduler UI component
+│   │   │   │   │   ├── context/
+│   │   │   │   │   │   ├── SchedulingContext.jsx  # Scheduling state management
+│   │   │   │   ├── analytics/  # Analytics-related components
+│   │   │   │   │   ├── components/
+│   │   │   │   │   │   ├── Charts.jsx  # Charts for analytics data
+│   │   │   │   ├── ai-insights/  # AI-powered insights
+│   │   │   │   │   ├── components/
+│   │   │   │   │   │   ├── SentimentDisplay.jsx  # Display sentiment analysis results
+│   │   │   │   ├── gamification/  # Gamification features (badges, rewards)
+│   │   │   │   │   ├── components/
+│   │   │   │   │   │   ├── Badges.jsx  # UI for achievements and badges
+│   │   │   ├── services/  # API service handlers
+│   │   │   │   ├── authService.js  # Handles authentication requests
+│   │   │   │   ├── postService.js  # Handles post-related requests
+│   │   │   ├── styles/  # Styling
+│   │   │   │   ├── global.css  # Global styles
+│   │   │   │   ├── theme.js  # Theme configuration
+│   │   │   ├── main.jsx  # Application entry point
+│   │   │   ├── App.jsx  # Root React component
+│   │   ├── assets/
+│   │   │   ├── images/
+│   │   │   │   ├── logo.png  # Logo asset
+│   │   ├── .env  # Environment variables
+│   │   ├── package.json  # Dependencies
+│   │   ├── vite.config.js  # Vite configuration
+│   └── ...
+├── server/  # Backend application (Node.js, Express, or similar)
+│   ├── src/
+│   │   ├── api/  # API modules
+│   │   │   ├── posts/  # Post management
+│   │   │   │   ├── posts.controller.js  # Handles API logic
+│   │   │   │   ├── posts.service.js  # Business logic
+│   │   │   │   ├── posts.routes.js  # API routes
+│   │   │   ├── analytics/  # Analytics API
+│   │   │   ├── ai/  # AI-related processing (sentiment analysis, recommendations)
+│   │   │   ├── users/  # User management
+│   │   │   ├── platforms/  # Social media platform integrations
+│   │   ├── auth/  # Authentication (JWT-based)
+│   │   │   ├── strategies/
+│   │   │   │   ├── jwt.strategy.js  # JWT strategy for authentication
+│   │   ├── common/  # Shared utilities
+│   │   │   ├── middleware/  # Middleware functions
+│   │   │   │   ├── auth.middleware.js  # Authentication middleware
+│   │   │   ├── dtos/  # Data Transfer Objects
+│   │   │   ├── models/  # Database models
+│   │   ├── config/  # Configuration files
+│   │   │   ├── db.config.js  # Database connection settings
+│   │   │   ├── social-media.config.js  # API keys for integrations
+│   │   ├── database/
+│   │   │   ├── db.js  # Database initialization
+│   │   ├── lib/  # Third-party integrations (SDKs, external APIs)
+│   │   ├── services/  # Business logic
+│   │   ├── main.js  # Main entry point
+│   │   ├── app.js  # Express application setup
+│   ├── .env  # Server environment variables
+│   ├── package.json  # Backend dependencies
+└── ...
+
+
+
