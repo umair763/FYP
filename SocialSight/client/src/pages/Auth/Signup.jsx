@@ -51,7 +51,7 @@ const SignUp = () => {
       >
          {/* Left Side - Illustration */}
          <motion.div
-            className="w-full md:w-1/2 flex flex-col justify-center items-center bg-gradient-to-b from-purple-300 to-white p-4 md:p-8 lg:p-12 text-center"
+            className="w-full md:w-1/2 flex flex-col justify-center items-center bg-gradient-to-b from-purple-300 to-white p-4 md:p-8 lg:p-12"
             initial="initial"
             animate="animate"
             exit="exit"
@@ -61,9 +61,7 @@ const SignUp = () => {
                SocialSight’s AI-Powered Social Media Assistant
             </h1>
             <p className="text-sm md:text-base lg:text-lg text-gray-600 font-medium mb-6 md:mb-8 px-2 md:px-0">
-               <span className="block font-bold mb-2">
-                  Create, Analyze performance, and track audience sentiment—all in one place.
-               </span>
+               <b>Create, Analyze performance, and track audience sentiment—all in one place.</b>
                Tailored insights and smart automation for effortless social media management.
             </p>
             <img
@@ -82,10 +80,12 @@ const SignUp = () => {
                {profileImage ? (
                   <img src={profileImage} alt="Profile" className="w-full h-full object-cover" />
                ) : (
-                  <span className="text-3xl md:text-4xl">👤</span>
+                  <span className="w-6 lg:w-13 md:w-8 sm:w-7">
+                     <img src="./src/assets/images/person-icon-1682.png" />
+                  </span>
                )}
-               <label className="absolute bottom-0 right-0 bg-purple-600 text-white p-1 md:p-2 rounded-full cursor-pointer shadow-lg z-10 text-sm md:text-base">
-                  📷
+               <label className="absolute w-9 bottom-1 right-2 bg-purple-300 text-white  md:p-1 rounded-full cursor-pointer shadow-lg z-50 text-sm md:text-base">
+                  <img src="./src/assets/images/camera.png" />
                   <input type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
                </label>
             </div>
