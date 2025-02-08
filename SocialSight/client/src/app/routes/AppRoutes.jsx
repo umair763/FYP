@@ -1,5 +1,5 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Routes, Route,Navigate } from 'react-router-dom';
 import Signup from '../pages/Auth/Signup';
 import Signin from '../pages/Auth/Signin';
 import Dashboard from '../pages/Dashboard';
@@ -18,34 +18,28 @@ import Comparison from '../pages/Comparison';
 import Setting from '../pages/Setting';
 import ManageChannel from '../pages/ManageChannel';
 import ManageTag from '../pages/ManageTag';
+import AuthContext from '../context/AuthContext';
 
 function AppRoutes() {
+   const { isAuthenticated } = useContext(AuthContext);
+
    return (
       <Routes>
+         <Route path="/Signup" element={<Signup />} />
+         <Route path="/Signin" element={<Signin />} />
+
          <Route element={<ProtectedRoutes />}>
             {/* Protected Routes */}
             <Route
                path="/"
                element={
-                  <Layout>
-                     <Dashboard />
-                  </Layout>
-               }
-            />
-            <Route
-               path="/Signup"
-               element={
-                  <Layout>
-                     <Signup />
-                  </Layout>
-               }
-            />
-            <Route
-               path="/Signin"
-               element={
-                  <Layout>
-                     <Signin />
-                  </Layout>
+                  isAuthenticated ? (
+                     <Layout>
+                        <Dashboard />
+                     </Layout>
+                  ) : (
+                     <Navigate to="/signin" replace />
+                  )
                }
             />
 
@@ -155,6 +149,7 @@ function AppRoutes() {
             />
          </Route>
          {/* Public Routes (outside ProtectedRoutes) */}
+         <Route path="*" element={<Navigate to={isAuthenticated ? '/' : '/signin'} replace />} />
       </Routes>
    );
 }

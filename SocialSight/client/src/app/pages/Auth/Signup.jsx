@@ -36,8 +36,8 @@ const SignUp = () => {
       e.preventDefault();
       if (username && email && password) {
          const user = { username, email, password, profileImage };
-         localStorage.setItem('user', JSON.stringify(user));
-         navigate('/signin');
+         localStorage.setItem('user', JSON.stringify(user)); // Store user data
+         navigate('/Signin'); // Redirect to signin after signup
       }
    };
 

@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import AuthContext from '../../context/AuthContext';
 import { motion } from 'framer-motion';
 
 const transitionVariants = {
@@ -18,15 +19,25 @@ function Signin() {
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
    const navigate = useNavigate();
+   const { setIsAuthenticated, setUser } = useContext(AuthContext);
 
    const handleSubmit = (e) => {
       e.preventDefault();
-      const user = JSON.parse(localStorage.getItem('user'));
 
-      if (user && user.email === email && user.password === password) {
-         navigate('/'); // Redirect to Dashboard on successful signin
+      const storedUser = localStorage.getItem('user');
+
+      if (storedUser) {
+         const user = JSON.parse(storedUser);
+
+         if (user.email === email && user.password === password) {
+            setUser(user); // Set user data in context
+            setIsAuthenticated(true);
+            navigate('/');
+         } else {
+            alert('Invalid credentials');
+         }
       } else {
-         alert('Invalid credentials');
+         alert('User not found. Please sign up.');
       }
    };
 
