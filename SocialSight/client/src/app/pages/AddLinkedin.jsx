@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function ConnectToLinkedin() {
+function AddLinkedin() {
    return (
       <>
          <div className="min-h-screen bg-gray-100 flex items-center justify-center ">
@@ -10,4 +10,4 @@ function ConnectToLinkedin() {
    );
 }
 
-export default ConnectToLinkedin;
+export default AddLinkedin;

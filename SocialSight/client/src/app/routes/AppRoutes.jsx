@@ -5,7 +5,7 @@ import ConnectToFacebook from '../pages/ConnectToFacebook';
 import ConnectToInsta from '../pages/ConnectToInsta';
 import ConnectToTwitter from '../pages/ConnectToTwitter';
 import ConnectToYoutube from '../pages/ConnectToYoutube';
-import ConnectToLinkedin from '../pages/ConnectToLinkedin';
+import AddLinkedin from '../pages/AddLinkedin';
 import ProtectedRoutes from '../../ProtectedRoutes';
 import Layout from '../layout/Layout';
 import Scheduling from '../pages/Scheduling';
@@ -109,10 +109,10 @@ function AppRoutes() {
                }
             />
             <Route
-               path="/linkedin"
+               path="/AddLinkedin"
                element={
                   <Layout>
-                     <ConnectToLinkedin />
+                     <AddLinkedin />
                   </Layout>
                }
             />
