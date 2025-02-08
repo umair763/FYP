@@ -117,7 +117,7 @@ const SignUp = () => {
                />
                <button
                   type="submit"
-                  className="w-1/2 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 md:py-3 rounded-full text-sm md:text-base"
+                  className="w-1/2 bg-purple-600 cursor-pointer hover:bg-purple-700 text-white font-semibold py-2 md:py-3 rounded-full text-sm md:text-base"
                >
                   SIGN UP
                </button>
