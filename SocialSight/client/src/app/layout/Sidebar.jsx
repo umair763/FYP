@@ -1,10 +1,21 @@
-import React from 'react';
+import { React, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import AuthContext from '../context/AuthContext';
 import { Link } from 'react-router-dom';
 import Button from '../../components/common/Button';
 import { FaSignOutAlt, FaFacebook, FaInstagram, FaTwitter, FaYoutube, FaLinkedin } from 'react-icons/fa';
 import { FaCogs } from 'react-icons/fa';
 
 function Sidebar() {
+   const navigate = useNavigate();
+   const { setIsAuthenticated, setUser } = useContext(AuthContext);
+
+   const handleLogout = () => {
+      localStorage.removeItem('user'); // Clear user data
+      setIsAuthenticated(false);
+      setUser(null);
+      navigate('/signin');
+   };
    return (
       <aside className="w-64 bg-gray-50 p-4 text-gray-600">
          {/* Added some basic styling */}
@@ -88,7 +99,10 @@ function Sidebar() {
             </li>
             <li>
                <div className="flex flex-col p-1 -ml-1 mt-2">
-                  <Button className="w-full flex items-center py-2 px-2 hover:bg-gray-200 bg-gray-100 cursor-pointer  rounded justify-start text-left">
+                  <Button
+                     onClick={handleLogout}
+                     className="w-full flex items-center py-2 px-2 hover:bg-gray-200 bg-gray-100 cursor-pointer  rounded justify-start text-left"
+                  >
                      <FaSignOutAlt className="mr-2 text-red-800" size={20} />
                      <span className="flex-grow">Sign Out</span>
                   </Button>

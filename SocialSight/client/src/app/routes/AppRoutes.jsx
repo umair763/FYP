@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Routes, Route,Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Signup from '../pages/Auth/Signup';
 import Signin from '../pages/Auth/Signin';
 import Dashboard from '../pages/Dashboard';
@@ -19,6 +19,7 @@ import Setting from '../pages/Setting';
 import ManageChannel from '../pages/ManageChannel';
 import ManageTag from '../pages/ManageTag';
 import AuthContext from '../context/AuthContext';
+import CreatePost from '../pages/CreatePost';
 
 function AppRoutes() {
    const { isAuthenticated } = useContext(AuthContext);
@@ -144,6 +145,14 @@ function AppRoutes() {
                element={
                   <Layout>
                      <ManageChannel />
+                  </Layout>
+               }
+            />
+            <Route
+               path="/createpost"
+               element={
+                  <Layout>
+                     <CreatePost />
                   </Layout>
                }
             />

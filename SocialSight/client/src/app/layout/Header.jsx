@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Header() {
    return (
-      <header className="text-[#6E54D1] bg-gray-50 p-4 flex items-center justify-between gap-4 md:gap-8">
+      <header className="text-[#6E54D1] bg-gray-50 p-4 flex items-center justify-between gap-4 md:gap-8 -mb-4">
          {/* Left Column - Title */}
          <h1 className="text-xl md:text-2xl font-bold whitespace-nowrap">SocialSight</h1>
 
