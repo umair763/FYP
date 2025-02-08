@@ -1,5 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import Signup from '../pages/Auth/Signup';
+import Signin from '../pages/Auth/Signin';
 import Dashboard from '../pages/Dashboard';
 import ConnectToFacebook from '../pages/ConnectToFacebook';
 import ConnectToInsta from '../pages/ConnectToInsta';
@@ -14,6 +16,8 @@ import Calendar from '../pages/Calendar';
 import Sentiment from '../pages/Sentiment';
 import Comparison from '../pages/Comparison';
 import Setting from '../pages/Setting';
+import ManageChannel from '../pages/ManageChannel';
+import ManageTag from '../pages/ManageTag';
 
 function AppRoutes() {
    return (
@@ -28,6 +32,23 @@ function AppRoutes() {
                   </Layout>
                }
             />
+            <Route
+               path="/Signup"
+               element={
+                  <Layout>
+                     <Signup />
+                  </Layout>
+               }
+            />
+            <Route
+               path="/Signin"
+               element={
+                  <Layout>
+                     <Signin />
+                  </Layout>
+               }
+            />
+
             <Route
                path="/connecttofacebook"
                element={
@@ -113,6 +134,22 @@ function AppRoutes() {
                element={
                   <Layout>
                      <AddLinkedin />
+                  </Layout>
+               }
+            />
+            <Route
+               path="/manageTag"
+               element={
+                  <Layout>
+                     <ManageTag />
+                  </Layout>
+               }
+            />
+            <Route
+               path="/manageChannel"
+               element={
+                  <Layout>
+                     <ManageChannel />
                   </Layout>
                }
             />
