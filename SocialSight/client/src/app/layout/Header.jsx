@@ -36,9 +36,11 @@ function Header() {
 
          {/* Right Column - Additional Elements */}
          <div>
-            <p>Esha Zafar</p>
+            <p>
+               <b>Esha Zafar</b>
+            </p>
          </div>
-         <div className="relative w-6 h-6 md:w-7 md:h-7 lg:w-12 lg:h-12 flex justify-center items-center border-4 border-purple-300 rounded-full overflow-hidden">
+         <div className="relative w-6 h-6 md:w-7 md:h-7 lg:w-12 lg:h-12 mr-2 flex justify-center items-center border-4 border-purple-300 rounded-full overflow-hidden">
             <div className="w-3 md:w-3 lg:w-6">
                <img src="./src/assets/images/person-icon-1682.png" />
             </div>

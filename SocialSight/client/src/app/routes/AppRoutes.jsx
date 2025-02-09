@@ -19,7 +19,7 @@ import Setting from '../pages/Setting';
 import ManageChannel from '../pages/ManageChannel';
 import ManageTag from '../pages/ManageTag';
 import AuthContext from '../context/AuthContext';
-import CreatePost from '../pages/CreatePost';
+import CreatePost from '../../components/CreatePost';
 import CreateSharePost from '../pages/CreateSharePost';
 
 function AppRoutes() {
