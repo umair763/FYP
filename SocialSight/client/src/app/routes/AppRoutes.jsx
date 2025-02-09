@@ -20,6 +20,7 @@ import ManageChannel from '../pages/ManageChannel';
 import ManageTag from '../pages/ManageTag';
 import AuthContext from '../context/AuthContext';
 import CreatePost from '../pages/CreatePost';
+import CreateSharePost from '../pages/CreateSharePost';
 
 function AppRoutes() {
    const { isAuthenticated } = useContext(AuthContext);
@@ -153,6 +154,14 @@ function AppRoutes() {
                element={
                   <Layout>
                      <CreatePost />
+                  </Layout>
+               }
+            />
+            <Route
+               path="/createsharepost"
+               element={
+                  <Layout>
+                     <CreateSharePost />
                   </Layout>
                }
             />

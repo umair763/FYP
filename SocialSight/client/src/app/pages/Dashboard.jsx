@@ -51,8 +51,7 @@ function Dashboard() {
                   followers="6.1K"
                   change="-2.3"
                   icon="./src/assets/images/facebookico.png"
-                  gradient="linear-gradient(to bottom, #1877F2, #FFFFFF)
-"
+                  gradient="linear-gradient(to bottom, #1877F2, #FFFFFF)"
                />
                <FollowerCard
                   platform="Instagram"
@@ -63,19 +62,16 @@ function Dashboard() {
                />
             </div>
          </div>
+         <Button
+            onClick={() => {
+               navigate('/createsharepost');
+            }}
+            className="z-50 bottom-15 bg-blue-500 hover:bg-blue-600 cursor-pointer fixed text-white p-3 rounded-full right-20"
+         >
+            <b>+</b> Create Post
+         </Button>
       </div>
    );
 }
 
 export default Dashboard;
-
-{
-   /* <Button
-   onClick={() => {
-      navigate('/createpost');
-   }}
-   className="bg-blue-600 rounded-full p-2 text-white fixed bottom-8 right-20"
->
-   <b>+</b> Create Post
-</Button> */
-}
